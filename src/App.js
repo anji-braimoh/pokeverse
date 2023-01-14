@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
 import { Navigation } from './components/Navigation';
 import { PokemonCard } from './components/PokemonCard';
 
@@ -10,17 +9,19 @@ const pokeApi = `https://pokeapi.co/api/v2/pokemon/?limit=${LIMIT}`;
 
 function App() {
 
-  const [poke,setPoke] = useState(0)
-
-  useEffect(()=>{
+  
     const fetchData = async () => {
       const result = await fetch(pokeApi)
       result.json().then(json =>{
-        console.log(json)
+        const pokemonList=json.results
+        console.log(pokemonList)
       })
     }
     fetchData()
-  }, [])
+    
+    
+
+
 
   return (
     <div data-testid="app">
