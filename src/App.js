@@ -10,15 +10,16 @@ const pokeApi = `https://pokeapi.co/api/v2/pokemon/?limit=${LIMIT}`;
 function App() {
 
   
-    const fetchData = async () => {
-      const result = await fetch(pokeApi)
-      result.json().then(json =>{
-        const pokemonList=json.results
-        console.log(pokemonList)
-      })
-    }
-    fetchData()
-    
+
+
+    async function fetchData() {
+    const response = await fetch(pokeApi);
+    const result = await response.json();
+    const pokemonList = result.results
+console.log(pokemonList)
+    // code that can access both here
+}
+fetchData()
     
 
 
